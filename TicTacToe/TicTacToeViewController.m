@@ -36,7 +36,11 @@
 }
 - (void) findLabelUsingPoint:(CGPoint)point
 {
+    UITapGestureRecognizer *tapGestureRecognizer =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelOne)];
+    [self.labelOne  addGestureRecognizer: tapGestureRecognizer];
+    self.labelOne.userInteractionEnabled = YES;
 
+    NSLog(@"helloooooooo");
 
 
 }
@@ -44,6 +48,8 @@
 - (IBAction)onLabelTapped:(id)sender {
 
     NSLog(@"It was tapped");
+    CGPoint point = [sender locationInView:self.view];
+    
 
 }
 
