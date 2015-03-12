@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F2415C931AB230FD00B36C5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2415C921AB230FD00B36C5D /* main.m */; };
 		F2415C961AB230FD00B36C5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2415C951AB230FD00B36C5D /* AppDelegate.m */; };
-		F2415C991AB230FD00B36C5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2415C981AB230FD00B36C5D /* ViewController.m */; };
+		F2415C991AB230FD00B36C5D /* TicTacToeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2415C981AB230FD00B36C5D /* TicTacToeViewController.m */; };
 		F2415C9C1AB230FD00B36C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2415C9A1AB230FD00B36C5D /* Main.storyboard */; };
 		F2415C9E1AB230FD00B36C5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2415C9D1AB230FD00B36C5D /* Images.xcassets */; };
 		F2415CA11AB230FD00B36C5D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2415C9F1AB230FD00B36C5D /* LaunchScreen.xib */; };
@@ -32,8 +32,8 @@
 		F2415C921AB230FD00B36C5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F2415C941AB230FD00B36C5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F2415C951AB230FD00B36C5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F2415C971AB230FD00B36C5D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F2415C981AB230FD00B36C5D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F2415C971AB230FD00B36C5D /* TicTacToeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicTacToeViewController.h; sourceTree = "<group>"; };
+		F2415C981AB230FD00B36C5D /* TicTacToeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToeViewController.m; sourceTree = "<group>"; };
 		F2415C9B1AB230FD00B36C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2415C9D1AB230FD00B36C5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F2415CA01AB230FD00B36C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -83,8 +83,8 @@
 			children = (
 				F2415C941AB230FD00B36C5D /* AppDelegate.h */,
 				F2415C951AB230FD00B36C5D /* AppDelegate.m */,
-				F2415C971AB230FD00B36C5D /* ViewController.h */,
-				F2415C981AB230FD00B36C5D /* ViewController.m */,
+				F2415C971AB230FD00B36C5D /* TicTacToeViewController.h */,
+				F2415C981AB230FD00B36C5D /* TicTacToeViewController.m */,
 				F2415C9A1AB230FD00B36C5D /* Main.storyboard */,
 				F2415C9D1AB230FD00B36C5D /* Images.xcassets */,
 				F2415C9F1AB230FD00B36C5D /* LaunchScreen.xib */,
@@ -219,7 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2415C991AB230FD00B36C5D /* ViewController.m in Sources */,
+				F2415C991AB230FD00B36C5D /* TicTacToeViewController.m in Sources */,
 				F2415C961AB230FD00B36C5D /* AppDelegate.m in Sources */,
 				F2415C931AB230FD00B36C5D /* main.m in Sources */,
 			);
@@ -412,6 +412,7 @@
 				F2415CB21AB230FD00B36C5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F2415CB31AB230FD00B36C5D /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +421,7 @@
 				F2415CB51AB230FD00B36C5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
