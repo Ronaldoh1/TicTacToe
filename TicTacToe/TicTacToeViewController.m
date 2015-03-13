@@ -19,7 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelEight;
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
+
+@property CGPoint locationTapped;
 
 @end
 
@@ -36,20 +37,21 @@
 }
 - (void) findLabelUsingPoint:(CGPoint)point
 {
-    UITapGestureRecognizer *tapGestureRecognizer =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelOne)];
-    [self.labelOne  addGestureRecognizer: tapGestureRecognizer];
-    self.labelOne.userInteractionEnabled = YES;
 
-    NSLog(@"helloooooooo");
+    if (CGRectContainsPoint(self.labelOne.frame, self.locationTapped )) {
+        NSLog(@"Label one tapped");
+    }
 
 
 }
 
-- (IBAction)onLabelTapped:(id)sender {
+- (IBAction)onLabelTapped:(UITapGestureRecognizer *)sender {
 
-    NSLog(@"It was tapped");
-    CGPoint point = [sender locationInView:self.view];
-    
+    //NSLog(@"It was tapped");
+    self.locationTapped = [sender locationInView:self.view];
+    NSLog(@"%f", self.locationTapped.x);
+
+
 
 }
 
