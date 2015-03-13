@@ -35,13 +35,17 @@
 
 
 }
-- (void) findLabelUsingPoint:(CGPoint)point
+- (UILabel *) findLabelUsingPoint:(CGPoint)point
 {
+    UILabel *labelFound;
 
-    if (CGRectContainsPoint(self.labelOne.frame, self.locationTapped )) {
+    if (CGRectContainsPoint(self.labelOne.frame, point)) {
         NSLog(@"Label one tapped");
+    } else {
+        NSLog(@"No label was tapped");
     }
 
+    return labelFound;
 
 }
 
@@ -49,8 +53,8 @@
 
     //NSLog(@"It was tapped");
     self.locationTapped = [sender locationInView:self.view];
-    NSLog(@"%f", self.locationTapped.x);
-
+   // NSLog(@"%f", self.locationTapped.x);
+    [self findLabelUsingPoint:self.locationTapped];
 
 
 }

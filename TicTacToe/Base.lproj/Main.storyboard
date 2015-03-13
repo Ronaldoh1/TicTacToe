@@ -100,7 +100,7 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Vue-dJ-W7w" appends="YES" id="sLQ-3T-To7"/>
+                                    <outletCollection property="gestureRecognizers" destination="Vue-dJ-W7w" appends="YES" id="CUC-8v-Iqo"/>
                                 </connections>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moC-H0-Gl0">
