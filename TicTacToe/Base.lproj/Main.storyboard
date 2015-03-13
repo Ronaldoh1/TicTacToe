@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tic Tac Toe Board-->
@@ -16,13 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft8-iq-92J">
-                                <rect key="frame" x="182" y="643" width="48" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnu-ar-LrG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnu-ar-LrG">
                                 <rect key="frame" x="253" y="248" width="75" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -34,7 +29,7 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlh-uS-tPU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlh-uS-tPU">
                                 <rect key="frame" x="169" y="413" width="75" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -45,7 +40,7 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yo7-5T-OqJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yo7-5T-OqJ">
                                 <rect key="frame" x="252" y="331" width="75" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -56,7 +51,7 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYB-r9-Sci">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYB-r9-Sci">
                                 <rect key="frame" x="169" y="330" width="75" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -67,7 +62,7 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFY-P2-VeE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFY-P2-VeE">
                                 <rect key="frame" x="86" y="413" width="75" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -78,7 +73,7 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEa-37-Is4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEa-37-Is4">
                                 <rect key="frame" x="86" y="330" width="75" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -89,7 +84,7 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2N-la-exu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2N-la-exu">
                                 <rect key="frame" x="87" y="247" width="75" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -103,7 +98,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Vue-dJ-W7w" appends="YES" id="CUC-8v-Iqo"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moC-H0-Gl0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moC-H0-Gl0">
                                 <rect key="frame" x="170" y="247" width="75" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -114,7 +109,7 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZd-EA-fhv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZd-EA-fhv">
                                 <rect key="frame" x="253" y="414" width="75" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -125,6 +120,27 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rR-cq-1aY">
+                                <rect key="frame" x="303" y="643" width="73" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="Qr2-ZF-E5U"/>
+                                    <constraint firstAttribute="height" constant="30" id="ybK-fO-eaN"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgainButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3Pc-SE-lce"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft8-iq-92J">
+                                <rect key="frame" x="195" y="620" width="24" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -132,10 +148,13 @@
                             <constraint firstItem="Yo7-5T-OqJ" firstAttribute="top" secondItem="vnu-ar-LrG" secondAttribute="bottom" constant="8" id="02K-z5-afy"/>
                             <constraint firstItem="KYB-r9-Sci" firstAttribute="leading" secondItem="IEa-37-Is4" secondAttribute="trailing" constant="8" id="6dI-pn-Ofi"/>
                             <constraint firstAttribute="centerY" secondItem="IEa-37-Is4" secondAttribute="centerY" id="6hS-1k-KZO"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ft8-iq-92J" secondAttribute="bottom" constant="68" id="8b6-2F-9KT"/>
                             <constraint firstItem="vnu-ar-LrG" firstAttribute="leading" secondItem="moC-H0-Gl0" secondAttribute="trailing" constant="8" id="8g8-c5-m9a"/>
                             <constraint firstItem="hZd-EA-fhv" firstAttribute="top" secondItem="Yo7-5T-OqJ" secondAttribute="bottom" constant="8" id="D8w-97-QKD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8rR-cq-1aY" secondAttribute="trailing" constant="22" id="Esw-fO-0yU"/>
                             <constraint firstItem="moC-H0-Gl0" firstAttribute="leading" secondItem="Y2N-la-exu" secondAttribute="trailing" constant="8" id="Gge-It-0qw"/>
                             <constraint firstItem="Yo7-5T-OqJ" firstAttribute="leading" secondItem="KYB-r9-Sci" secondAttribute="trailing" constant="8" id="GqN-7s-zEM"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="8rR-cq-1aY" secondAttribute="bottom" constant="63" id="I4q-Oc-69q"/>
                             <constraint firstAttribute="centerX" secondItem="dlh-uS-tPU" secondAttribute="centerX" id="KlG-Un-6Oa"/>
                             <constraint firstItem="dlh-uS-tPU" firstAttribute="top" secondItem="KYB-r9-Sci" secondAttribute="bottom" constant="8" id="NwX-gA-MBV"/>
                             <constraint firstAttribute="centerX" secondItem="moC-H0-Gl0" secondAttribute="centerX" id="S3m-nj-E5u"/>
@@ -145,11 +164,13 @@
                             <constraint firstItem="IEa-37-Is4" firstAttribute="top" secondItem="Y2N-la-exu" secondAttribute="bottom" constant="8" id="h5f-mB-pYQ"/>
                             <constraint firstAttribute="centerX" secondItem="KYB-r9-Sci" secondAttribute="centerX" id="nNi-ww-U1A"/>
                             <constraint firstAttribute="centerY" secondItem="KYB-r9-Sci" secondAttribute="centerY" id="nrv-dv-HSC"/>
+                            <constraint firstAttribute="centerX" secondItem="ft8-iq-92J" secondAttribute="centerX" id="rhW-X1-5Fc"/>
                             <constraint firstItem="QFY-P2-VeE" firstAttribute="top" secondItem="IEa-37-Is4" secondAttribute="bottom" constant="8" id="rlR-ZW-qhD"/>
                             <constraint firstItem="dlh-uS-tPU" firstAttribute="leading" secondItem="QFY-P2-VeE" secondAttribute="trailing" constant="8" id="yO1-p3-PFP"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Vue-dJ-W7w" appends="YES" id="fP0-XL-4XN"/>
+                            <outletCollection property="gestureRecognizers" destination="0aF-DO-5bm" appends="YES" id="UH7-tK-fcZ"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -172,8 +193,13 @@
                         <action selector="onLabelTapped:" destination="vXZ-lx-hvc" id="4kX-UL-7RV"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="0aF-DO-5bm">
+                    <connections>
+                        <action selector="whilePanning:" destination="vXZ-lx-hvc" id="L4O-jI-7U0"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="124" y="428.83999999999997"/>
+            <point key="canvasLocation" x="124" y="428"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

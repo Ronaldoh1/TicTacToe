@@ -19,14 +19,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelEight;
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
-
+@property  CGPoint originalWhichPlayerLabelCenter;
 
 
 
 //player 1 or Player 2.
 @property (nonatomic) int player;
 
-//game state - this will keep track O = O and 1 = X
+//game state - this will keep track
+//0 is empty, 1 is circles, 2 is cross
 
 @property (nonatomic) NSArray *gameState;
 
@@ -44,9 +45,13 @@
 
     self.gameState = @[@0, @0, @0, @0, @0, @0, @0, @0, @0];
 
+    self.originalWhichPlayerLabelCenter = self.whichPlayerLabel.center;
+
     //now that we have the game state, basically we'd need to check for the state of each label...and compare it to each possible combination for wining.
 //    the possible winning combinations are:
 //    [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]] which would go in an array of arrays.
+
+    //self.combinationsforwinning = [@[@0, @1, @2], @[@3, @4, @5], @[@6, @7, @8], @[@0, @3, @6], @[@1, @4, @7], @[@2, @5, @8], @[@0, @4, @8], @[@2, @4, @6]];
 
 
 
@@ -63,12 +68,13 @@
 
 
     if (CGRectContainsPoint(self.labelOne.frame, point)) {
-
-        if ([self.labelOne.text isEqual:@"O"]){
-            self.labelOne.text = @"X";
-        } else{
-            self.labelOne.text = @"O";
+        if (self.gameState[0] == 0 ) {
+            //change label to players piece
+            self.labelOne.text = self.whichPlayerLabel.text;
+        }else {
+            self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
+
 
         NSLog(@"Label one tapped");
     } else if (CGRectContainsPoint(self.labelTwo.frame, point)){
@@ -125,6 +131,44 @@
 
 }
 
+- (IBAction)playAgainButtonTapped:(id)sender {
+
+    self.gameState = @[@0, @0, @0, @0, @0, @0, @0, @0, @0];
+
+    self.labelOne.text = @"";
+    self.labelTwo.text = @"";
+     self.labelThree.text = @"";
+     self.labelFour.text = @"";
+     self.labelFive.text = @"";
+     self.labelSix.text = @"";
+     self.labelSeven.text = @"";
+     self.labelEight.text = @"";
+     self.labelNine.text = @"";
+
+}
+
+-(IBAction)whilePanning:(UIPanGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint point = [sender locationInView:self.view];
+        self.whichPlayerLabel.center = point;
+        if (CGRectContainsPoint(self.labelOne.frame, point))
+        {
+            self.labelOne.text = @"X";
+            self.whichPlayerLabel.text = @"O";
+
+        }
+
+        [UIView animateWithDuration:2 animations:
+         ^{
+             self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
+             self.whichPlayerLabel.alpha = 0;
+         } completion:^(BOOL finished)
+         {
+             self.whichPlayerLabel.alpha = 1;
+         }];
+    }}
 
 
 @end
