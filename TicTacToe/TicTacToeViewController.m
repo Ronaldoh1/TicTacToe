@@ -21,12 +21,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
 
 
+
+
 //player 1 or Player 2.
 @property (nonatomic) int player;
 
-//game state - this will keep track of
+//game state - this will keep track O = O and 1 = X
 
 @property (nonatomic) NSArray *gameState;
+
+@property (nonatomic)  NSMutableArray *combinationsforwinning;
 
 @property CGPoint locationTapped;
 
@@ -38,7 +42,15 @@
 {
     [super viewDidLoad];
 
-   
+    self.gameState = @[@0, @0, @0, @0, @0, @0, @0, @0, @0];
+
+    //now that we have the game state, basically we'd need to check for the state of each label...and compare it to each possible combination for wining.
+//    the possible winning combinations are:
+//    [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]] which would go in an array of arrays.
+
+
+
+
 
 
 
