@@ -20,6 +20,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
 
+
+//player 1 or Player 2.
+@property (nonatomic) int player;
+
+//game state - this will keep track of
+
+@property (nonatomic) NSArray *gameState;
+
 @property CGPoint locationTapped;
 
 @end
@@ -43,10 +51,27 @@
 
 
     if (CGRectContainsPoint(self.labelOne.frame, point)) {
+
+        if ([self.labelOne.text isEqual:@"O"]){
+            self.labelOne.text = @"X";
+        } else{
+            self.labelOne.text = @"O";
+        }
+
         NSLog(@"Label one tapped");
     } else if (CGRectContainsPoint(self.labelTwo.frame, point)){
+        if ([self.labelTwo.text isEqual:@"O"]){
+            self.labelTwo.text = @"X";
+        } else{
+            self.labelTwo.text = @"O";
+        }
         NSLog(@"Label two tapped");
     } else if (CGRectContainsPoint(self.labelThree.frame, point)){
+        if ([self.labelThree.text isEqual:@"O"]){
+            self.labelThree.text = @"X";
+        } else{
+            self.labelThree.text = @"O";
+        }
         NSLog(@"Label three tapped");
     }else if (CGRectContainsPoint(self.labelFour.frame, point)){
         NSLog(@"Label four tapped");
