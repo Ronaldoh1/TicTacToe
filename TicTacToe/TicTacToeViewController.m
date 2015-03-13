@@ -39,11 +39,38 @@
 {
     UILabel *labelFound;
 
+    //second we need to find the label based on the CGpoint...so if we need to check if the tapped location found is contained within the label frame..if so that means the label has been tapped.
+
+
     if (CGRectContainsPoint(self.labelOne.frame, point)) {
         NSLog(@"Label one tapped");
-    } else {
-        NSLog(@"No label was tapped");
+    } else if (CGRectContainsPoint(self.labelTwo.frame, point)){
+        NSLog(@"Label two tapped");
+    } else if (CGRectContainsPoint(self.labelThree.frame, point)){
+        NSLog(@"Label three tapped");
+    }else if (CGRectContainsPoint(self.labelFour.frame, point)){
+        NSLog(@"Label four tapped");
+    } else if (CGRectContainsPoint(self.labelFive.frame, point)){
+        NSLog(@"Label five tapped");
+    } else if (CGRectContainsPoint(self.labelSix.frame, point)){
+        NSLog(@"Label six tapped");
+    }else if (CGRectContainsPoint(self.labelSeven.frame, point)){
+        NSLog(@"Label seven tapped");
+    } else if (CGRectContainsPoint(self.labelEight.frame, point)){
+        NSLog(@"Label eight tapped");
+    } else if (CGRectContainsPoint(self.labelNine.frame, point)){
+        NSLog(@"Label nine tapped");
+    } else{
+                NSLog(@"The user tapped outside of the labels");
     }
+
+
+
+
+
+
+
+
 
     return labelFound;
 
@@ -52,6 +79,8 @@
 - (IBAction)onLabelTapped:(UITapGestureRecognizer *)sender {
 
     //NSLog(@"It was tapped");
+
+    //first we need to find the location of the label tapped via the UITapGestureRecognizer.
     self.locationTapped = [sender locationInView:self.view];
    // NSLog(@"%f", self.locationTapped.x);
     [self findLabelUsingPoint:self.locationTapped];
