@@ -22,6 +22,11 @@
 @property  CGPoint originalWhichPlayerLabelCenter;
 
 
+//create an array a labels array to store all of the labels.
+
+@property NSArray *labelsArray;
+
+
 
 //player 1 or Player 2.
 @property (nonatomic) int player;
@@ -29,11 +34,16 @@
 //game state - this will keep track
 //0 is empty, 1 is circles, 2 is cross
 
-@property (nonatomic) NSArray *gameState;
+@property (nonatomic) NSMutableArray* gameState;
 
-@property (nonatomic)  NSMutableArray *combinationsforwinning;
+@property (nonatomic)  NSArray *combinationsforwinning;
 
 @property CGPoint locationTapped;
+
+
+//we will let the X go first.
+
+@property (nonatomic) int whichTurn;
 
 @end
 
@@ -43,7 +53,12 @@
 {
     [super viewDidLoad];
 
-    self.gameState = @[@0, @0, @0, @0, @0, @0, @0, @0, @0];
+    //x = 1, 0 =2, x = 3, 0 = 4 .....and so on
+    self.whichTurn = 1;
+
+    //need the mutablecopy property to properly declare.
+
+    self.gameState = @[@0, @0, @0, @0, @0, @0, @0, @0, @0].mutableCopy;
 
     self.originalWhichPlayerLabelCenter = self.whichPlayerLabel.center;
 
@@ -51,10 +66,12 @@
 //    the possible winning combinations are:
 //    [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]] which would go in an array of arrays.
 
-    //self.combinationsforwinning = [@[@0, @1, @2], @[@3, @4, @5], @[@6, @7, @8], @[@0, @3, @6], @[@1, @4, @7], @[@2, @5, @8], @[@0, @4, @8], @[@2, @4, @6]];
+    self.combinationsforwinning = @[@[@0, @1, @2], @[@3, @4, @5], @[@6, @7, @8], @[@0, @3, @6], @[@1, @4, @7], @[@2, @5, @8], @[@0, @4, @8], @[@2, @4, @6]];
 
 
+    //load add the labels to the array.
 
+    self.labelsArray = @[self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine];
 
 
 
@@ -68,6 +85,8 @@
 
 
     if (CGRectContainsPoint(self.labelOne.frame, point)) {
+
+
         if (self.gameState[0] == 0 ) {
             //change label to players piece
             self.labelOne.text = self.whichPlayerLabel.text;
@@ -78,11 +97,15 @@
 
         NSLog(@"Label one tapped");
     } else if (CGRectContainsPoint(self.labelTwo.frame, point)){
-        if ([self.labelTwo.text isEqual:@"O"]){
-            self.labelTwo.text = @"X";
-        } else{
-            self.labelTwo.text = @"O";
+
+
+        if (self.gameState[1] == 0 ) {
+            //change label to players piece
+            self.labelTwo.text = self.whichPlayerLabel.text;
+        }else {
+            self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
+
         NSLog(@"Label two tapped");
     } else if (CGRectContainsPoint(self.labelThree.frame, point)){
         if ([self.labelThree.text isEqual:@"O"]){
@@ -133,7 +156,7 @@
 
 - (IBAction)playAgainButtonTapped:(id)sender {
 
-    self.gameState = @[@0, @0, @0, @0, @0, @0, @0, @0, @0];
+    self.gameState = @[@0, @0, @0, @0, @0, @0, @0, @0, @0].mutableCopy;
 
     self.labelOne.text = @"";
     self.labelTwo.text = @"";
@@ -151,13 +174,32 @@
 {
     if (sender.state == UIGestureRecognizerStateEnded)
     {
+
+
         CGPoint point = [sender locationInView:self.view];
         self.whichPlayerLabel.center = point;
-        if (CGRectContainsPoint(self.labelOne.frame, point))
+
+
+        for (int i = 0; i<self.labelsArray.count; i++){
+
+            UILabel *someLabel = self.labelsArray[i];
+
+
+        if (CGRectContainsPoint(someLabel.frame, point))
         {
-            self.labelOne.text = @"X";
+            if ([self.whichPlayerLabel.text isEqualToString:@"X"] && [self.gameState[i] intValue] == 0){
+
+            someLabel.text = @"X";
             self.whichPlayerLabel.text = @"O";
 
+
+                //to add to this array need to convert int to an NSNumber Object.
+                self.gameState[i] = @(1);
+
+            } else if ([self.whichPlayerLabel.text isEqualToString:@"O"] && [self.gameState[i] intValue] == 0){
+                someLabel.text = @"O";
+                self.whichPlayerLabel.text = @"X";
+            }
         }
 
         [UIView animateWithDuration:2 animations:
@@ -169,6 +211,6 @@
              self.whichPlayerLabel.alpha = 1;
          }];
     }}
-
+}
 
 @end
