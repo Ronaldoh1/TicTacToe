@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
 @property  CGPoint originalWhichPlayerLabelCenter;
+
+
 //-----NSTimer Stuff-----//
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (nonatomic) int labelInt;
@@ -227,6 +229,75 @@
              self.whichPlayerLabel.alpha = 1;
          }];
     }}
+
+
+    for (int i = 0; i<self.combinationsforwinning.count; i++) {
+
+        NSArray *innerArray = self.combinationsforwinning[i];
+
+        for (int j = 0; j<innerArray.count; j++) {
+
+            NSArray *k = innerArray[j]; //[innerArray[j] intValue];
+
+            //   if (self.gameState[k[0]] == self.gameState[[1]] && self.gameState[k[0]] == self.gameState[k[2]]){
+
+
+
+        }
+    }
+
+    //
+    //        int i = 0;
+    //        int j = 0;
+    //        for (NSArray *combination in self.combinationsforwinning){
+    //
+    //            for (NSArray *element in combination) {
+    //
+    //
+    //
+    //
+    //                if (self.gameState[element[0]] == self.gameState[element[1]] && self.gameState[element[0]] == self.gameState[element[2]]){
+    //                    //
+    //                    }
+    //
+    //
+    //            }
+    //
+    //        }
+
+    //        for (int i = 0; i <self.combinationsforwinning.count i++){
+    //            NSArray *someArray = self.combinationsforwinning[i];
+    //            for (int j = 0; j < 3; i++) {
+    //                (self.gameState[someArray[0]] == self.gameState[someArray[1]] && self.gameState[someArray[0]] == self.gameState[someArray[2]]){
+    //
+    //            }
+    //
+    //
+    //        }
+    //
+    //
+    //        for (NSArray *someCombination in self.combinationsforwinning) {
+    //
+    //
+    //
+    //            for (NSArray *i in someCombination){
+    //
+    //                if (self.gameState[someCombination[@0]] == self.gameState[combination[@1]] && self.gameState[someCombination[@0]] == self.gameState[someCombination[@2]]){
+    //
+    //                }
+    //
+    //            }
+    //
+    //        }
+    //            for
+    //
+    //            if (self.gameState[someCombination[@0]] == self.gameState[combination[@1]] && self.gameState[someCombination[@0]] == self.gameState[someCombination[@2]]){
+    //
+    //            }
+    //
+    //
+    //
+    //        }
 }
 
 @end
