@@ -20,6 +20,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
 @property  CGPoint originalWhichPlayerLabelCenter;
+//-----NSTimer Stuff-----//
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (nonatomic) int labelInt;
+@property (nonatomic) NSTimer *timer;
+
 
 
 //create an array a labels array to store all of the labels.
@@ -73,10 +78,21 @@
 
     self.labelsArray = @[self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine];
 
+//---------------------//
+//----NSTimer Stuff----//
+    self.labelInt = 20;
+    self.timerLabel.text = [NSString stringWithFormat:@"%i", self.labelInt];
+    self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(countDownMethod) userInfo:nil repeats:YES];
+}
 
-
+-(void)countDownMethod
+{
+    NSLog(@"hello");
+    self.labelInt -=1;
+    self.timerLabel.text = [NSString stringWithFormat:@"%i", self.labelInt];
 
 }
+
 - (UILabel *) findLabelUsingPoint:(CGPoint)point
 {
     UILabel *labelFound;
