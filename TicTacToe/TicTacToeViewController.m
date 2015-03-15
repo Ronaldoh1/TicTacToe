@@ -52,6 +52,10 @@
 
 @property (nonatomic) int whichTurn;
 
+@property (nonatomic) bool labelchanged;
+
+@property (nonatomic) int winner;
+
 @end
 
 @implementation TicTacToeViewController
@@ -59,6 +63,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    //label changed should be false
+    self.labelchanged = false;
+
+    //set the winner to 0
+    self.winner = 0;
 
     //x = 1, 0 =2, x = 3, 0 = 4 .....and so on
     self.whichTurn = 1;
@@ -80,20 +90,83 @@
 
     self.labelsArray = @[self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine];
 
+
+
 //---------------------//
-//----NSTimer Stuff----//
-    self.labelInt = 20;
-    self.timerLabel.text = [NSString stringWithFormat:@"%i", self.labelInt];
-    self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(countDownMethod) userInfo:nil repeats:YES];
+//---- call the timer----//
+
+    [self setTimer];
+
+
+
+
 }
 
--(void)countDownMethod
+-(void)runTimer
 {
-    NSLog(@"hello");
+    //NSLog(@"hello");
     self.labelInt -=1;
+
+
+
+
     self.timerLabel.text = [NSString stringWithFormat:@"%i", self.labelInt];
 
+    if (self.labelInt == 0){
+        [self.timer invalidate];
+        self.timer = nil;
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TIME ENDED!"
+                                                        message:@"YOU LOSE! - PLAY AGAIN"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
 }
+-(void)checkForWinner{
+
+    for (int i = 0; i<self.combinationsforwinning.count; i++) {
+
+        NSArray *innerArray = self.combinationsforwinning[i];
+
+        for (int j = 0; j<innerArray.count; j++) {
+
+            // NSArray *k = innerArray[j]; //[innerArray[j] intValue];
+
+            NSNumber *someNumber = innerArray[j];
+
+            //convert the number to an in
+
+            [someNumber intValue];
+
+            if (self.gameState[[innerArray[0] intValue]] == self.gameState[[innerArray[1] intValue]] && self.gameState[[innerArray[0] intValue]] == self.gameState[[innerArray[2] intValue]]){
+                //self.winner = self.gameState[innerArray[0]];
+                
+                
+                NSLog(@"We have a winner");
+            }
+        }
+    }
+
+
+}
+-(void)setTimer{
+
+    self.labelInt = 20; //sets the time to play
+
+
+
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(runTimer) userInfo:nil repeats:YES];
+
+    self.timerLabel.text = [NSString stringWithFormat:@"%i", self.labelInt];
+    //NSLog(@"%@", self.timer);
+
+
+
+}
+
 
 - (UILabel *) findLabelUsingPoint:(CGPoint)point
 {
@@ -169,7 +242,7 @@
    // NSLog(@"%f", self.locationTapped.x);
     [self findLabelUsingPoint:self.locationTapped];
 
-
+    //[self checkForWinner];
 }
 
 - (IBAction)playAgainButtonTapped:(id)sender {
@@ -185,6 +258,9 @@
      self.labelSeven.text = @"";
      self.labelEight.text = @"";
      self.labelNine.text = @"";
+
+
+
 
 }
 
@@ -207,16 +283,30 @@
         {
             if ([self.whichPlayerLabel.text isEqualToString:@"X"] && [self.gameState[i] intValue] == 0){
 
+                
+
             someLabel.text = @"X";
+                 self.labelchanged = true;
             self.whichPlayerLabel.text = @"O";
 
 
                 //to add to this array need to convert int to an NSNumber Object.
                 self.gameState[i] = @(1);
 
+                if (self.labelchanged == true) {
+                      [self checkForWinner];
+                }
+
+
             } else if ([self.whichPlayerLabel.text isEqualToString:@"O"] && [self.gameState[i] intValue] == 0){
                 someLabel.text = @"O";
+                self.labelchanged = true;
                 self.whichPlayerLabel.text = @"X";
+
+                if (self.labelchanged == true) {
+                    [self checkForWinner];
+                }
+
             }
         }
 
@@ -231,20 +321,7 @@
     }}
 
 
-    for (int i = 0; i<self.combinationsforwinning.count; i++) {
-
-        NSArray *innerArray = self.combinationsforwinning[i];
-
-        for (int j = 0; j<innerArray.count; j++) {
-
-            NSArray *k = innerArray[j]; //[innerArray[j] intValue];
-
-            //   if (self.gameState[k[0]] == self.gameState[[1]] && self.gameState[k[0]] == self.gameState[k[2]]){
-
-
-
         }
-    }
 
     //
     //        int i = 0;
@@ -298,6 +375,6 @@
     //
     //
     //        }
-}
+
 
 @end
