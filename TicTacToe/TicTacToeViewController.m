@@ -149,32 +149,7 @@
         }
     }
 }
--(void)runTimer
-{
-    //NSLog(@"hello");
-    self.labelInt -=1;
 
-
-
-
-    self.timerLabel.text = [NSString stringWithFormat:@"%i", self.labelInt];
-
-    if (self.labelInt == 0){
-        [self.timer invalidate];
-        self.timer = nil;
-
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TIME ENDED!"
-                                                        message:@"YOU LOSE! - PLAY AGAIN"
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        //reset the board and restart.
-        [self resetGame];
-        self.labelInt = 20;
-    }
-    
-}
 -(void)checkForWinner{
 
     for (int i = 0; i<self.combinationsforwinning.count; i++) {
@@ -248,8 +223,37 @@
         [self resetGame];
     }
 }
--(void)setTimer{
 
+-(void)runTimer
+{
+    //NSLog(@"hello");
+    self.labelInt -=1;
+
+
+
+
+    self.timerLabel.text = [NSString stringWithFormat:@"%i", self.labelInt];
+
+    if (self.labelInt == 0){
+        [self.timer invalidate];
+        self.timer = nil;
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TIME ENDED!"
+                                                        message:@"YOU LOSE! - PLAY AGAIN"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        //reset the board and restart.
+        [self resetGame];
+
+        [self setTimer];
+        self.labelInt = 20;
+    }
+    
+}
+-(void)setTimer{
+      [self.timer invalidate];
     self.labelInt = 20; //sets the time to play
 
 
@@ -277,7 +281,7 @@
         if (self.gameState[0] == 0 ) {
             //change label to players piece
             self.labelOne.text = self.whichPlayerLabel.text;
-            [self setTimer];
+
         }else {
             self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
@@ -290,7 +294,7 @@
         if (self.gameState[1] == 0 ) {
             //change label to players piece
             self.labelTwo.text = self.whichPlayerLabel.text;
-                [self setTimer];
+
         }else {
             self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
@@ -298,60 +302,61 @@
         NSLog(@"Label two tapped");
     } else if (CGRectContainsPoint(self.labelThree.frame, point)){
         if ([self.labelThree.text isEqual:@"O"]){
-            self.labelThree.text = @"X";
+            self.labelThree.text = self.whichPlayerLabel.text;
+
             [self setTimer];
         } else{
-            self.labelThree.text = @"O";
+            self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
         NSLog(@"Label three tapped");
     }else if (CGRectContainsPoint(self.labelFour.frame, point)){
 
         if ([self.labelFour.text isEqual:@"O"]){
             self.labelFour.text = @"X";
-            [self setTimer];
+
         } else{
-            self.labelFour.text = @"O";
+            self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
 
         NSLog(@"Label four tapped");
     } else if (CGRectContainsPoint(self.labelFive.frame, point)){
         if ([self.labelFive.text isEqual:@"O"]){
             self.labelFive.text = @"X";
-            [self setTimer];
+
         } else{
-            self.labelFive.text = @"O";
+            self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
         NSLog(@"Label five tapped");
     } else if (CGRectContainsPoint(self.labelSix.frame, point)){
         if ([self.labelSix.text isEqual:@"O"]){
             self.labelSix.text = @"X";
         } else{
-            self.labelSix.text = @"O";
+            self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
 
         NSLog(@"Label six tapped");
     }else if (CGRectContainsPoint(self.labelSeven.frame, point)){
         if ([self.labelSeven.text isEqual:@"O"]){
             self.labelSeven.text = @"X";
-            [self setTimer];
+
         } else{
-            self.labelSeven.text = @"O";
+            self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
         NSLog(@"Label seven tapped");
     } else if (CGRectContainsPoint(self.labelEight.frame, point)){
         if ([self.labelEight.text isEqual:@"O"]){
             self.labelEight.text = @"X";
-            [self setTimer];
+
         } else{
-            self.labelEight.text = @"O";
+            self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
         NSLog(@"Label eight tapped");
     } else if (CGRectContainsPoint(self.labelNine.frame, point)){
         if ([self.labelNine.text isEqual:@"O"]){
             self.labelNine.text = @"X";
-            [self setTimer];
+
         } else{
-            self.labelNine.text = @"O";
+           self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
         NSLog(@"Label nine tapped");
     } else{
@@ -403,6 +408,8 @@
     self.labelEight.text = @"";
     self.labelNine.text = @"";
 
+
+
 }
 
 -(IBAction)whilePanning:(UIPanGestureRecognizer *)sender
@@ -429,6 +436,7 @@
             someLabel.text = @"X";
                  self.labelchanged = true;
             self.whichPlayerLabel.text = @"O";
+                [self.timer invalidate];
                 [self setTimer];
 
 
@@ -444,6 +452,8 @@
                 someLabel.text = @"O";
                 self.labelchanged = true;
                 self.whichPlayerLabel.text = @"X";
+                [self.timer invalidate];
+
                 [self setTimer];
                 if (self.labelchanged == true) {
                     [self checkForWinner];
@@ -452,7 +462,7 @@
             }
         }
 
-        [UIView animateWithDuration:2 animations:
+        [UIView animateWithDuration:1 animations:
          ^{
              self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
              self.whichPlayerLabel.alpha = 0;
