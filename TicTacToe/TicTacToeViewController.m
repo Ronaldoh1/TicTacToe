@@ -169,6 +169,9 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        //reset the board and restart.
+        [self resetGame];
+        self.labelInt = 20;
     }
     
 }
@@ -232,6 +235,19 @@
 
 
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    //we need to reset the game if the timer expires.
+
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+
+    //we need to reset the game if the timer expires.
+    if ([self.timerLabel isEqual:@"0"]) {
+        [self resetGame];
+    }
+}
 -(void)setTimer{
 
     self.labelInt = 20; //sets the time to play
@@ -261,6 +277,7 @@
         if (self.gameState[0] == 0 ) {
             //change label to players piece
             self.labelOne.text = self.whichPlayerLabel.text;
+            [self setTimer];
         }else {
             self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
@@ -273,6 +290,7 @@
         if (self.gameState[1] == 0 ) {
             //change label to players piece
             self.labelTwo.text = self.whichPlayerLabel.text;
+                [self setTimer];
         }else {
             self.whichPlayerLabel.center = self.originalWhichPlayerLabelCenter;
         }
@@ -281,6 +299,7 @@
     } else if (CGRectContainsPoint(self.labelThree.frame, point)){
         if ([self.labelThree.text isEqual:@"O"]){
             self.labelThree.text = @"X";
+            [self setTimer];
         } else{
             self.labelThree.text = @"O";
         }
@@ -289,6 +308,7 @@
 
         if ([self.labelFour.text isEqual:@"O"]){
             self.labelFour.text = @"X";
+            [self setTimer];
         } else{
             self.labelFour.text = @"O";
         }
@@ -297,6 +317,7 @@
     } else if (CGRectContainsPoint(self.labelFive.frame, point)){
         if ([self.labelFive.text isEqual:@"O"]){
             self.labelFive.text = @"X";
+            [self setTimer];
         } else{
             self.labelFive.text = @"O";
         }
@@ -312,6 +333,7 @@
     }else if (CGRectContainsPoint(self.labelSeven.frame, point)){
         if ([self.labelSeven.text isEqual:@"O"]){
             self.labelSeven.text = @"X";
+            [self setTimer];
         } else{
             self.labelSeven.text = @"O";
         }
@@ -319,6 +341,7 @@
     } else if (CGRectContainsPoint(self.labelEight.frame, point)){
         if ([self.labelEight.text isEqual:@"O"]){
             self.labelEight.text = @"X";
+            [self setTimer];
         } else{
             self.labelEight.text = @"O";
         }
@@ -326,6 +349,7 @@
     } else if (CGRectContainsPoint(self.labelNine.frame, point)){
         if ([self.labelNine.text isEqual:@"O"]){
             self.labelNine.text = @"X";
+            [self setTimer];
         } else{
             self.labelNine.text = @"O";
         }
@@ -354,7 +378,7 @@
     self.locationTapped = [sender locationInView:self.view];
    // NSLog(@"%f", self.locationTapped.x);
     [self findLabelUsingPoint:self.locationTapped];
-
+    [self setTimer];
     //[self checkForWinner];
 }
 
@@ -405,6 +429,7 @@
             someLabel.text = @"X";
                  self.labelchanged = true;
             self.whichPlayerLabel.text = @"O";
+                [self setTimer];
 
 
                 //to add to this array need to convert int to an NSNumber Object.
@@ -419,7 +444,7 @@
                 someLabel.text = @"O";
                 self.labelchanged = true;
                 self.whichPlayerLabel.text = @"X";
-
+                [self setTimer];
                 if (self.labelchanged == true) {
                     [self checkForWinner];
                 }
