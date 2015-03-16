@@ -120,15 +120,15 @@
                                 <color key="textColor" red="0.97658418999999996" green="0.97523837410000003" blue="0.99874642570000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rR-cq-1aY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rR-cq-1aY">
                                 <rect key="frame" x="303" y="643" width="73" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="Qr2-ZF-E5U"/>
                                     <constraint firstAttribute="height" constant="30" id="ybK-fO-eaN"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Play Again">
+                                <state key="normal" image="button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -141,8 +141,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oV-UO-S0u">
-                                <rect key="frame" x="186" y="165" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Counter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oV-UO-S0u">
+                                <rect key="frame" x="176" y="77" width="62" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -170,6 +170,7 @@
                             <constraint firstItem="IEa-37-Is4" firstAttribute="top" secondItem="Y2N-la-exu" secondAttribute="bottom" constant="8" id="h5f-mB-pYQ"/>
                             <constraint firstAttribute="centerX" secondItem="KYB-r9-Sci" secondAttribute="centerX" id="nNi-ww-U1A"/>
                             <constraint firstAttribute="centerY" secondItem="KYB-r9-Sci" secondAttribute="centerY" id="nrv-dv-HSC"/>
+                            <constraint firstAttribute="centerX" secondItem="1oV-UO-S0u" secondAttribute="centerX" id="rRE-Ya-Gu3"/>
                             <constraint firstAttribute="centerX" secondItem="ft8-iq-92J" secondAttribute="centerX" id="rhW-X1-5Fc"/>
                             <constraint firstItem="QFY-P2-VeE" firstAttribute="top" secondItem="IEa-37-Is4" secondAttribute="bottom" constant="8" id="rlR-ZW-qhD"/>
                             <constraint firstItem="dlh-uS-tPU" firstAttribute="leading" secondItem="QFY-P2-VeE" secondAttribute="trailing" constant="8" id="yO1-p3-PFP"/>
@@ -206,9 +207,12 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="124" y="428"/>
+            <point key="canvasLocation" x="140" y="408"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button.png" width="163" height="40"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

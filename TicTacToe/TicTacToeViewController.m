@@ -56,6 +56,9 @@
 
 @property (nonatomic) int winner;
 
+@property (nonatomic) NSString *playerOneName;
+
+@property (nonatomic) NSString *playerTwoName;
 @end
 
 @implementation TicTacToeViewController
@@ -99,9 +102,53 @@
 
 
 
+    UIAlertView *alert2 = [[UIAlertView alloc] initWithTitle:@"Player 2:" message:@"Please enter your name" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+
+    alert2.alertViewStyle = UIAlertViewStylePlainTextInput;
+
+    alert2.tag = 2;
+
+    [alert2 addButtonWithTitle:@"GO"];
+
+    [alert2 show];
+
+
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Player 1:" message:@"Please enter your name" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+
+    alert.tag = 1;
+
+    [alert addButtonWithTitle:@"GO"];
+
+    [alert show];
+
+
+
 
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 1) {
+        if (buttonIndex == 1) {
+            UITextField *textfield = [alertView textFieldAtIndex:0];
+
+            self.playerOneName = textfield.text;
+
+            //NSLog(@"username: %@", textfield.text);
+        }
+    } else if (alertView.tag == 2) {
+        if (buttonIndex == 1) {
+            UITextField *textfield = [alertView textFieldAtIndex:0];
+
+            self.playerTwoName = textfield.text;
+
+//NSLog(@"username: %@", textfield.text);
+        }
+    }
+}
 -(void)runTimer
 {
     //NSLog(@"hello");
@@ -141,12 +188,45 @@
 
             [someNumber intValue];
 
-            if (self.gameState[[innerArray[0] intValue]] == self.gameState[[innerArray[1] intValue]] && self.gameState[[innerArray[0] intValue]] == self.gameState[[innerArray[2] intValue]]){
-                //self.winner = self.gameState[innerArray[0]];
+            if (self.gameState[[innerArray[0] intValue]] == self.gameState[[innerArray[1] intValue]] && self.gameState[[innerArray[0] intValue]] == self.gameState[[innerArray[2] intValue]]  && self.gameState[[innerArray[0] intValue]] != 0){
+
+
+                self.winner = [self.gameState[[innerArray[0] intValue]] intValue];
                 
-                
-                NSLog(@"We have a winner");
+
             }
+
+        }
+
+
+        if (self.winner != 0){
+
+            if (self.winner == 1) {
+
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WINNER!!"
+                                                                message: [NSString stringWithFormat:@"%@ Wins", self.playerOneName]
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show]; //we want to show the alert to the user.
+
+                //we also need to reset the game so the player can play again.
+
+                [self resetGame];
+
+            }else if(self.winner == 2){
+
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WINNER!!"
+                                                                message:[NSString stringWithFormat:@"%@ Wins", self.playerTwoName]
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+
+                [self resetGame];
+            }
+            NSLog(@"We have a winner");
+
         }
     }
 
@@ -206,16 +286,49 @@
         }
         NSLog(@"Label three tapped");
     }else if (CGRectContainsPoint(self.labelFour.frame, point)){
+
+        if ([self.labelFour.text isEqual:@"O"]){
+            self.labelFour.text = @"X";
+        } else{
+            self.labelFour.text = @"O";
+        }
+
         NSLog(@"Label four tapped");
     } else if (CGRectContainsPoint(self.labelFive.frame, point)){
+        if ([self.labelFive.text isEqual:@"O"]){
+            self.labelFive.text = @"X";
+        } else{
+            self.labelFive.text = @"O";
+        }
         NSLog(@"Label five tapped");
     } else if (CGRectContainsPoint(self.labelSix.frame, point)){
+        if ([self.labelSix.text isEqual:@"O"]){
+            self.labelSix.text = @"X";
+        } else{
+            self.labelSix.text = @"O";
+        }
+
         NSLog(@"Label six tapped");
     }else if (CGRectContainsPoint(self.labelSeven.frame, point)){
+        if ([self.labelSeven.text isEqual:@"O"]){
+            self.labelSeven.text = @"X";
+        } else{
+            self.labelSeven.text = @"O";
+        }
         NSLog(@"Label seven tapped");
     } else if (CGRectContainsPoint(self.labelEight.frame, point)){
+        if ([self.labelEight.text isEqual:@"O"]){
+            self.labelEight.text = @"X";
+        } else{
+            self.labelEight.text = @"O";
+        }
         NSLog(@"Label eight tapped");
     } else if (CGRectContainsPoint(self.labelNine.frame, point)){
+        if ([self.labelNine.text isEqual:@"O"]){
+            self.labelNine.text = @"X";
+        } else{
+            self.labelNine.text = @"O";
+        }
         NSLog(@"Label nine tapped");
     } else{
                 NSLog(@"The user tapped outside of the labels");
@@ -247,20 +360,24 @@
 
 - (IBAction)playAgainButtonTapped:(id)sender {
 
+    [self resetGame];
+
+
+
+}
+-(void)resetGame{
+
     self.gameState = @[@0, @0, @0, @0, @0, @0, @0, @0, @0].mutableCopy;
 
     self.labelOne.text = @"";
     self.labelTwo.text = @"";
-     self.labelThree.text = @"";
-     self.labelFour.text = @"";
-     self.labelFive.text = @"";
-     self.labelSix.text = @"";
-     self.labelSeven.text = @"";
-     self.labelEight.text = @"";
-     self.labelNine.text = @"";
-
-
-
+    self.labelThree.text = @"";
+    self.labelFour.text = @"";
+    self.labelFive.text = @"";
+    self.labelSix.text = @"";
+    self.labelSeven.text = @"";
+    self.labelEight.text = @"";
+    self.labelNine.text = @"";
 
 }
 
@@ -323,58 +440,6 @@
 
         }
 
-    //
-    //        int i = 0;
-    //        int j = 0;
-    //        for (NSArray *combination in self.combinationsforwinning){
-    //
-    //            for (NSArray *element in combination) {
-    //
-    //
-    //
-    //
-    //                if (self.gameState[element[0]] == self.gameState[element[1]] && self.gameState[element[0]] == self.gameState[element[2]]){
-    //                    //
-    //                    }
-    //
-    //
-    //            }
-    //
-    //        }
-
-    //        for (int i = 0; i <self.combinationsforwinning.count i++){
-    //            NSArray *someArray = self.combinationsforwinning[i];
-    //            for (int j = 0; j < 3; i++) {
-    //                (self.gameState[someArray[0]] == self.gameState[someArray[1]] && self.gameState[someArray[0]] == self.gameState[someArray[2]]){
-    //
-    //            }
-    //
-    //
-    //        }
-    //
-    //
-    //        for (NSArray *someCombination in self.combinationsforwinning) {
-    //
-    //
-    //
-    //            for (NSArray *i in someCombination){
-    //
-    //                if (self.gameState[someCombination[@0]] == self.gameState[combination[@1]] && self.gameState[someCombination[@0]] == self.gameState[someCombination[@2]]){
-    //
-    //                }
-    //
-    //            }
-    //
-    //        }
-    //            for
-    //
-    //            if (self.gameState[someCombination[@0]] == self.gameState[combination[@1]] && self.gameState[someCombination[@0]] == self.gameState[someCombination[@2]]){
-    //
-    //            }
-    //
-    //
-    //
-    //        }
 
 
 @end

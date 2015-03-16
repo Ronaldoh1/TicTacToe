@@ -14,6 +14,7 @@
 		F2415C9E1AB230FD00B36C5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2415C9D1AB230FD00B36C5D /* Images.xcassets */; };
 		F2415CA11AB230FD00B36C5D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2415C9F1AB230FD00B36C5D /* LaunchScreen.xib */; };
 		F2415CAD1AB230FD00B36C5D /* TicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2415CAC1AB230FD00B36C5D /* TicTacToeTests.m */; };
+		F24EA1061AB6CD8600184236 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = F24EA1051AB6CD8600184236 /* button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		F2415CA61AB230FD00B36C5D /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2415CAB1AB230FD00B36C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2415CAC1AB230FD00B36C5D /* TicTacToeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToeTests.m; sourceTree = "<group>"; };
+		F24EA1051AB6CD8600184236 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				F2415C9A1AB230FD00B36C5D /* Main.storyboard */,
 				F2415C9D1AB230FD00B36C5D /* Images.xcassets */,
 				F2415C9F1AB230FD00B36C5D /* LaunchScreen.xib */,
+				F24EA1051AB6CD8600184236 /* button.png */,
 				F2415C901AB230FD00B36C5D /* Supporting Files */,
 			);
 			path = TicTacToe;
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2415C9C1AB230FD00B36C5D /* Main.storyboard in Resources */,
+				F24EA1061AB6CD8600184236 /* button.png in Resources */,
 				F2415CA11AB230FD00B36C5D /* LaunchScreen.xib in Resources */,
 				F2415C9E1AB230FD00B36C5D /* Images.xcassets in Resources */,
 			);
