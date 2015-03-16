@@ -10,6 +10,7 @@
 
 @interface HelpViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -18,24 +19,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.webView.delegate = self;
-    [self performLoadRequestWithString:@"http://www.en.wikipedia.org/wiki/Tic-tac-toe"];
+  [self performLoadRequestWithString:@"http://www.en.wikipedia.org/wiki/Tic-tac-toe"];
+     self.activityIndicator.hidesWhenStopped = true;
     
 }
-
--(void)performLoadRequestWithString(NSString *)string
-{
+-(void) performLoadRequestWithString:(NSString *) string{
     NSURL *url = [NSURL URLWithString:string];
+
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
     [self.webView loadRequest:request];
-}
--(void)webViewDidStartLoad:(UIWebView *)webView
-{
-
-}
--(void)webViewDidFinishLoad:(UIWebView *)webView
-{
 
 }
 
+#pragma mark -UIWebViewDelegate Protocols
+-(void)webViewDidStartLoad:(UIWebView *)webView{
+    [self.activityIndicator startAnimating];
+
+}
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+[self.activityIndicator stopAnimating];
+    
+}
 
 @end

@@ -219,6 +219,7 @@
         <!--Help View Controller-->
         <scene sceneID="8YJ-9p-i87">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="522-Rf-qto" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="2xa-2U-GqD" customClass="HelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vl9-TW-H2B"/>
@@ -232,18 +233,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="delegate" destination="RfD-Mi-7ms" id="oS2-K1-jG3"/>
+                                    <outlet property="delegate" destination="2xa-2U-GqD" id="q3R-9k-KCe"/>
                                 </connections>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QDZ-1Z-ccq">
+                                <rect key="frame" x="188.5" y="349.5" width="37" height="37"/>
+                                <color key="color" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="QDZ-1Z-ccq" secondAttribute="centerX" id="5dm-AH-wyS"/>
+                            <constraint firstAttribute="centerY" secondItem="QDZ-1Z-ccq" secondAttribute="centerY" id="CPf-xn-Kio"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hBq-ta-LgX"/>
                     <connections>
-                        <outlet property="webView" destination="UHl-vP-9AW" id="uRK-Ix-ewO"/>
+                        <outlet property="activityIndicator" destination="QDZ-1Z-ccq" id="CRc-LM-fRR"/>
+                        <outlet property="webView" destination="UHl-vP-9AW" id="nhF-kK-ESz"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="522-Rf-qto" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1217" y="408"/>
         </scene>
