@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E18816D41AB73F2E00498F87 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18816D31AB73F2E00498F87 /* HelpViewController.m */; };
 		F2415C931AB230FD00B36C5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2415C921AB230FD00B36C5D /* main.m */; };
 		F2415C961AB230FD00B36C5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2415C951AB230FD00B36C5D /* AppDelegate.m */; };
 		F2415C991AB230FD00B36C5D /* TicTacToeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2415C981AB230FD00B36C5D /* TicTacToeViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E18816D21AB73F2E00498F87 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		E18816D31AB73F2E00498F87 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		F2415C8D1AB230FD00B36C5D /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2415C911AB230FD00B36C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2415C921AB230FD00B36C5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				F2415C971AB230FD00B36C5D /* TicTacToeViewController.h */,
 				F2415C981AB230FD00B36C5D /* TicTacToeViewController.m */,
 				F2415C9A1AB230FD00B36C5D /* Main.storyboard */,
+				E18816D21AB73F2E00498F87 /* HelpViewController.h */,
+				E18816D31AB73F2E00498F87 /* HelpViewController.m */,
 				F2415C9D1AB230FD00B36C5D /* Images.xcassets */,
 				F2415C9F1AB230FD00B36C5D /* LaunchScreen.xib */,
 				F24EA1051AB6CD8600184236 /* button.png */,
@@ -226,6 +231,7 @@
 				F2415C991AB230FD00B36C5D /* TicTacToeViewController.m in Sources */,
 				F2415C961AB230FD00B36C5D /* AppDelegate.m in Sources */,
 				F2415C931AB230FD00B36C5D /* main.m in Sources */,
+				E18816D41AB73F2E00498F87 /* HelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
